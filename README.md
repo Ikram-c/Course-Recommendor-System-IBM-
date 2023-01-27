@@ -19,13 +19,23 @@ The machine learning models used for this project included:
 
 - ***KNN from surprise library***
 - ***NMF from surprise library***
-- ***Tensor flow Neural Network classifier***
+- ***Tensor flow Neural Network classifier using embeddings***
 
 
-## list of Notebooks in this project:
+# list of Notebooks in this project:
 
-### EDA
 - EDA IBM capstone project
+- Unsupervised (course similarity) IBM Capstone project
+- Unsupervised (course vectors) IBM capstone project
+- Unsupervised (clustering) IBM capstone project
+- Supervised (KNN) IBM capstone project
+- Supervsied (NMF) IBM capstone project
+- Supervised (Neural Network) IBM capstone project
+
+
+
+# Flowcharts of notebooks in project
+
 
 ### Unsupervised Learning
 - Unsupervised (clustering) IBM capstone project
@@ -64,10 +74,19 @@ Flowchart of notebook:
 
 
 
-## Summary of each notebook
+# Summary of each notebook
 
-### EDA IBM capstone project
+## "EDA IBM capstone project" Notebook
 
+#### The libraries used for this notebook were:
+
+- ***Pandas***
+- ***numpy***
+- ***matplotlib***
+- ***seaborn***
+- ***wordcloud*** which was used to import ***WordCloud, STOPWORDS and ImageColorGenerator***
+
+#### Summary and visualisations
 This notebook conducted an Exploratory Data Analysis (EDA) of the data. This was done through:
 
 - A barchart  to obtain the balance of genres in the dataset (figure 1)
@@ -89,18 +108,152 @@ This notebook conducted an Exploratory Data Analysis (EDA) of the data. This was
 ![Screenshot_20230106_082341](https://user-images.githubusercontent.com/68299933/215203717-6c720539-ef07-4165-874e-419b803afe49.png)
 (figure 4)
 
+It should be noted that a Heatmap (figure 5) was generated in the "Unsupervised (clustering) IBM capstone project" notebook to see how closely linked the courses were with their content
+![Screenshot_20230106_165537](https://user-images.githubusercontent.com/68299933/215204865-a680ff3c-124c-4f76-9c45-a6f5eeca2595.png)
 
 
-The libraries used for this notebook were:
+--------------------
+
+## "Unsupervised (course similarity) IBM Capstone project" Notebook
+
+***Note: The code in this notebook needs to be refactored to improve readability and performance***
+
+#### The libraries used for this notebook were:
+
 
 - ***Pandas***
 - ***numpy***
 - ***matplotlib***
 - ***seaborn***
-- ***wordcloud*** which was used to import ***WordCloud, STOPWORDS and ImageColorGenerator***
+- ***nltk*** which was used to import ***word_tokenize and stopwords***
+- ***gensim*** which was used to import ***corpora and Dictionary***
+
+#### Summary
+This notebook used similarity scores to reccomend courses to users. This is implemented through a series of functions and a similarity matrix (one was given in the dataset although another one was also generated). The average number of course reccomendations per user was found and the top 10 courses reccomended were also obtained. The hyper parameters of the ML model were tweaked through changes to the score threshold (similarity score of a course) which resulted in 3 different ML models which were compared using their silhoette score. Furthermore a similarity matrix
+
+#### Functions used:
+- The "generate_recommendations_for_all" function was used to obtain reccomendations for all users
+- The "generate_recommendations_for_one_user" function was used to obtain the reccomendations for a single user and was used in the "generate_recommendations_for_all" function
+- The "compute_silhouette_score" function was used to find the silhoette score of the ML models.
+- The "get_most_common_item_and_score" function was used to get the most reccomended courses and the average score
 
 
+--------------------
 
+## "Unsupervised (course vectors) IBM capstone project" Notebook
+
+#### The libraries used for this notebook were:
+
+
+- ***Pandas***
+- ***numpy***
+- ***matplotlib***
+- ***seaborn***
+- ***Sklearn*** which was used to import ***preprocessing***
+- ***scipy*** which was used to import ***directed_hausdorff, pdist***
+
+#### Summary
+This notebook used user profile and course genres vectors to reccomend courses to users. This is done by finding the dot product between the user profile vector and the course genre vector to get a score. 3 Models were generated using score threshold as the hyperparameter and were compared using their sillhoette score.
+
+#### Functions used:
+- The "generate_recommendation_scores_dot_product" function was used to obtain reccomendations for all users
+- The "compute_silhouette_score" function was used to find the silhoette score of the ML models.
+
+
+--------------------
+
+## "Unsupervised (clustering) IBM capstone project" Notebook
+
+***Note: The code in this notebook needs to be refactored as it was modified to eventually become part of a new project that is being worked on for an automated clustering algorithm**
+
+#### The libraries used for this notebook were:
+
+- ***Pandas***
+- ***numpy***
+- ***matplotlib***
+- ***seaborn***
+- ***sklearn*** which was used to import ***Kmeans,StandardScaler,MinMaxScaler, Normalizer, GaussianMixture, GridSearchCV, PCA and silhoette_score***
+
+
+#### Summary
+This notebook used clustering algorithms to reccomend courses to users. Three models were created for this particular project although the groundwork has been laid to create many more models. The models were compared using their F1 score and the top 10 reccomendations and average number of reccomendations per user was also found. A heatmap was also generated which is shown in figure 5 in the ""EDA IBM capstone project" Notebook" section.
+
+#### Functions used:
+- The "cluster_df_algorithm" function was used to generate clustering models for reccomendations for users. The inputs for the function are the "scaler" which selects which scaling model to use(StandardScaler,MinMaxScaler, Normalizer), "cluster_optimizer" which selects which optimizer to use (gridsearch, lowest sum of squares, gap_statistic), and whether PCA should be used.
+- The "cluster_item_enrol" function obtains the cluster for each item and the labels for each user
+- The "reccomend_unseen" function returns a dictionary with reccomendations for unseen courses to users
+
+----------------------------------------
+
+## "Supervised (KNN) IBM capstone project" Notebook
+
+***Note: The code in this notebook needs to be refactored as it was modified to eventually become part of a new project that is being worked on for an automated clustering algorithm**
+
+#### The libraries used for this notebook were:
+
+- ***Pandas***
+- ***numpy***
+- ***matplotlib***
+- ***seaborn***
+- ***surprise*** which was used to import ***train_test_split, GridSearchCV, f1_score, Dataset, Reader, accuracy, KNNBasic, defaultdict and KFold***
+
+
+#### Summary
+This notebook used KNN to reccomend courses to users. The KNN models used: "msd" similarity and a k of 10, "cosine" similarity and a k of 10  and "cosine" similarity and a k of 20, effectively producing 3 different ML models. The models were compared using their F1 score.
+
+#### Functions used:
+- The "precision_recall_at_k" function was used to Obtain the precision and recall values of each model
+
+---------------------------------------------
+
+## "Supervsied (NMF) IBM capstone project" Notebook
+
+#### The libraries used for this notebook were:
+
+
+- ***Pandas***
+- ***numpy***
+- ***matplotlib***
+- ***seaborn***
+- ***Surprise*** which was used to import ***NMF, Dataset, Reader, train_test_split and accuracy***
+- ***collections*** which was used to import ***defaultdict***
+
+#### Summary
+This notebook used NMF to reccomend courses to users. Three models were generated by changing the hyperparemeters:
+- n_factors = 15 and n_epochs = 50
+- n_factors = 30 and n_epochs = 100
+- n_factors = 60 and n_epochs = 200
+The models were compared using their F1 score
+
+#### Functions used:
+- The "precision_recall_at_k" function was used to Obtain the precision and recall values of each model
+- The "average_dicts" function was used to average precision and recalls of a model which was used for the "precision_recall_at_k" function.
+
+
+---------------------------------------
+## "Supervised (Neural Network) IBM capstone project" Notebook
+
+#### The libraries used for this notebook were:
+
+
+- ***Pandas***
+- ***numpy***
+- ***matplotlib***
+- ***seaborn***
+- ***sklearn*** which was used to import ***GridSearchCV, LabelEncoder, f1_score and train_test_split***
+- ***tensorflow*** which was used to import ***keras, KerasClassifier, Sequential and Dense***
+
+#### Summary
+This notebook used Neural network embeddings to reccomend courses to a user. A merged dataframe is created which is used as the basis for the machine learning models, the features are defined and label encoding is used to convert categorical variables into continuous variables. Three models were created via changing their hyperparameters:
+
+- Model 1 had a test size of 0.2 and used the default epochs setting
+- Model 2 had a test size of 0.2 and had the epochs set to 10
+- Model 3 had a test size of 0.4 and had the epochs set to 20
+
+For each model, a keras classifier was wrapped around the model, GridSearchCV was used to search over the parameter grid and each model was evaluated using the f1_score.
+
+#### Functions used:
+- The "build_model" function was used to create the neural network
 
 
 
@@ -108,6 +261,5 @@ The libraries used for this notebook were:
 
 
 ## Summary of project (Conclusions)
-
-
-
+Each model was compared and the results are discussed in the pdf ("Course Recommonder System IBM Presentation as pdf").  The Best model for the supervised model was the Neural network whilst the best unsupervised model was the user profile-based reccomender system. For future work, more tuning on the hyper parameters for the unsupervised model would be
+needed such as altering the optimizers and trying other libraries. A Neural Network can also be used for auto encoding the data for KNN clustering which would provide the unsupervised models something to compete against the supervised models.
