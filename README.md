@@ -1,8 +1,8 @@
-# Course Recommendor System IBM
+# Course Recommender System IBM
 
 ## Overview of project
 
-The aim of this project was to use various machine learning models for a course reccomendor system. The dataset which was used was the IBM Course Recommendations dataset which is a collection of data related to IBM courses (specifically those on python) and the interactions students had with them (these were saved as CSVs)
+The aim of this project was to use various machine learning models for a course recommender system. The dataset which was used was the IBM Course Recommendations dataset which is a collection of data related to IBM courses (specifically those on python) and the interactions students had with them (these were saved as CSVs)
 
 For this project both supervised and unsupervised models were used which were then compared with each other. The project itself consists of several notebooks (listed below) along with a pdf of a summary of the project. This project was part of the work done for the IBM Machine Learning Professional certificate.
 
@@ -10,7 +10,7 @@ The machine learning models used for this project included:
 
 ##### Unsuperivsed Learning
 
-- ***Using dot product to compare vectors for reccomendations***
+- ***Using dot product to compare vectors for recommendations***
 - ***Using Bag of Words (Bows) and a similarity matrix***
 - ***Clustering and PCA***
 
@@ -29,7 +29,7 @@ The machine learning models used for this project included:
 - Unsupervised (course vectors) IBM capstone project
 - Unsupervised (clustering) IBM capstone project
 - Supervised (KNN) IBM capstone project
-- Supervsied (NMF) IBM capstone project
+- Supervised (NMF) IBM capstone project
 - Supervised (Neural Network) IBM capstone project
 
 
@@ -89,7 +89,7 @@ Flowchart of notebook:
 #### Summary and visualisations
 This notebook conducted an Exploratory Data Analysis (EDA) of the data. This was done through:
 
-- A barchart  to obtain the balance of genres in the dataset (figure 1)
+- A bar chart to obtain the balance of genres in the dataset (figure 1)
 
 ![Screenshot_20230106_063319](https://user-images.githubusercontent.com/68299933/215202863-acab82ed-4269-4560-b3d8-a89d097f7a07.png)
 (figure 1)
@@ -99,16 +99,16 @@ This notebook conducted an Exploratory Data Analysis (EDA) of the data. This was
 ![Screenshot_20230106_063601](https://user-images.githubusercontent.com/68299933/215203057-7f5b77d4-8993-4d7b-87f2-02e7a7c88664.png)
 (figure 2)
 
--A dataframe of the 20 most popular courses to see what courses are most likely to be reccomended to users (figure 3)
+-A dataframe of the 20 most popular courses to see what courses are most likely to be recommended to users (figure 3)
 
 ![Screenshot_20230106_094652](https://user-images.githubusercontent.com/68299933/215203436-13c22dc6-e48a-4d84-bc07-6ec94d85bd42.png)
 (figure 3)
 
--A wordcloud (figure 4) to visually see what key words appear the most and used stopwords was used to eliminate common english words
+-A word cloud (figure 4) to visually see what key words appear the most and used stop words was used to eliminate common English words
 ![Screenshot_20230106_082341](https://user-images.githubusercontent.com/68299933/215203717-6c720539-ef07-4165-874e-419b803afe49.png)
 (figure 4)
 
-It should be noted that a Heatmap (figure 5) was generated in the "Unsupervised (clustering) IBM capstone project" notebook to see how closely linked the courses were with their content
+It should be noted that a Heat map (figure 5) was generated in the "Unsupervised (clustering) IBM capstone project" notebook to see how closely linked the courses were with their content
 ![Screenshot_20230106_165537](https://user-images.githubusercontent.com/68299933/215204865-a680ff3c-124c-4f76-9c45-a6f5eeca2595.png)
 
 
@@ -129,7 +129,7 @@ It should be noted that a Heatmap (figure 5) was generated in the "Unsupervised 
 - ***gensim*** which was used to import ***corpora and Dictionary***
 
 #### Summary
-This notebook used similarity scores to reccomend courses to users. This is implemented through a series of functions and a similarity matrix (one was given in the dataset although another one was also generated). The average number of course reccomendations per user was found and the top 10 courses reccomended were also obtained. The hyper parameters of the ML model were tweaked through changes to the score threshold (similarity score of a course) which resulted in 3 different ML models which were compared using their silhoette score. Furthermore a similarity matrix
+This notebook used similarity scores to recommend courses to users. This is implemented through a series of functions and a similarity matrix (one was given in the dataset although another one was also generated). The average number of course recommendations per user was found and the top 10 courses recommended were also obtained. The hyper parameters of the ML model were tweaked through changes to the score threshold (similarity score of a course) which resulted in 3 different ML models which were compared using their silhouette score. Furthermore a similarity matrix
 
 #### Functions used:
 - The "generate_recommendations_for_all" function was used to obtain reccomendations for all users
@@ -153,11 +153,11 @@ This notebook used similarity scores to reccomend courses to users. This is impl
 - ***scipy*** which was used to import ***directed_hausdorff, pdist***
 
 #### Summary
-This notebook used user profile and course genres vectors to reccomend courses to users. This is done by finding the dot product between the user profile vector and the course genre vector to get a score. 3 Models were generated using score threshold as the hyperparameter and were compared using their sillhoette score.
+This notebook used user profile and course genres vectors to recommend courses to users. This is done by finding the dot product between the user profile vector and the course genre vector to get a score. 3 Models were generated using score threshold as the hyper parameter and were compared using their silhouette score.
 
 #### Functions used:
 - The "generate_recommendation_scores_dot_product" function was used to obtain reccomendations for all users
-- The "compute_silhouette_score" function was used to find the silhoette score of the ML models.
+- The "compute_silhouette_score" function was used to find the silhouette score of the ML models.
 
 
 --------------------
@@ -176,12 +176,12 @@ This notebook used user profile and course genres vectors to reccomend courses t
 
 
 #### Summary
-This notebook used clustering algorithms to reccomend courses to users. Three models were created for this particular project although the groundwork has been laid to create many more models. The models were compared using their F1 score and the top 10 reccomendations and average number of reccomendations per user was also found. A heatmap was also generated which is shown in figure 5 in the ""EDA IBM capstone project" Notebook" section.
+This notebook used clustering algorithms to recommend courses to users. Three models were created for this particular project although the groundwork has been laid to create many more models. The models were compared using their F1 score and the top 10 recommendations and average number of recommendations per user was also found. A heat map was also generated which is shown in figure 5 in the ""EDA IBM capstone project" Notebook" section.
 
 #### Functions used:
-- The "cluster_df_algorithm" function was used to generate clustering models for reccomendations for users. The inputs for the function are the "scaler" which selects which scaling model to use(StandardScaler,MinMaxScaler, Normalizer), "cluster_optimizer" which selects which optimizer to use (gridsearch, lowest sum of squares, gap_statistic), and whether PCA should be used.
+- The "cluster_df_algorithm" function was used to generate clustering models for recommendations for users. The inputs for the function are the "scaler" which selects which scaling model to use(StandardScaler,MinMaxScaler, Normalizer), "cluster_optimizer" which selects which optimizer to use (gridsearch, lowest sum of squares, gap_statistic), and whether PCA should be used.
 - The "cluster_item_enrol" function obtains the cluster for each item and the labels for each user
-- The "reccomend_unseen" function returns a dictionary with reccomendations for unseen courses to users
+- The "reccomend_unseen" function returns a dictionary with recommendations for unseen courses to users
 
 ----------------------------------------
 
@@ -199,10 +199,10 @@ This notebook used clustering algorithms to reccomend courses to users. Three mo
 
 
 #### Summary
-This notebook used KNN to reccomend courses to users. The KNN models used: "msd" similarity and a k of 10, "cosine" similarity and a k of 10  and "cosine" similarity and a k of 20, effectively producing 3 different ML models. The models were compared using their F1 score.
+This notebook used KNN to reccomend courses to users. The KNN models used: "msd" similarity and a k of 10, "cosine" similarity and a k of 10 and "cosine" similarity and a k of 20, effectively producing 3 different ML models. The models were compared using their F1 score.
 
 #### Functions used:
-- The "precision_recall_at_k" function was used to Obtain the precision and recall values of each model
+- The "precision_recall_at_k" function was used to obtain the precision and recall values of each model
 
 ---------------------------------------------
 
@@ -244,7 +244,7 @@ The models were compared using their F1 score
 - ***tensorflow*** which was used to import ***keras, KerasClassifier, Sequential and Dense***
 
 #### Summary
-This notebook used Neural network embeddings to reccomend courses to a user. A merged dataframe is created which is used as the basis for the machine learning models, the features are defined and label encoding is used to convert categorical variables into continuous variables. Three models were created via changing their hyperparameters:
+This notebook used Neural network embeddings to recommend courses to a user. A merged dataframe is created which is used as the basis for the machine learning models, the features are defined and label encoding is used to convert categorical variables into continuous variables. Three models were created via changing their hyper parameters:
 
 - Model 1 had a test size of 0.2 and used the default epochs setting
 - Model 2 had a test size of 0.2 and had the epochs set to 10
