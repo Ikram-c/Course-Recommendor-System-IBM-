@@ -25,7 +25,7 @@ The machine learning models used for this project included:
 ## list of Notebooks in this project:
 
 ### EDA
-- EDA.ipynb
+- EDA IBM capstone project
 
 ### Unsupervised Learning
 - Unsupervised (clustering) IBM capstone project
@@ -64,7 +64,40 @@ Flowchart of notebook:
 
 
 
-## Overview of each notebook
+## Summary of each notebook
+
+### EDA IBM capstone project
+
+This notebook conducted an Exploratory Data Analysis (EDA) of the data. This was done through:
+
+- A barchart  to obtain the balance of genres in the dataset (figure 1)
+
+![Screenshot_20230106_063319](https://user-images.githubusercontent.com/68299933/215202863-acab82ed-4269-4560-b3d8-a89d097f7a07.png)
+(figure 1)
+
+- A histogram plot to check the distribution of the dataset (figure 2)
+
+![Screenshot_20230106_063601](https://user-images.githubusercontent.com/68299933/215203057-7f5b77d4-8993-4d7b-87f2-02e7a7c88664.png)
+(figure 2)
+
+-A dataframe of the 20 most popular courses to see what courses are most likely to be reccomended to users (figure 3)
+
+![Screenshot_20230106_094652](https://user-images.githubusercontent.com/68299933/215203436-13c22dc6-e48a-4d84-bc07-6ec94d85bd42.png)
+(figure 3)
+
+-A wordcloud (figure 4) to visually see what key words appear the most and used stopwords was used to eliminate common english words
+![Screenshot_20230106_082341](https://user-images.githubusercontent.com/68299933/215203717-6c720539-ef07-4165-874e-419b803afe49.png)
+(figure 4)
+
+
+
+The libraries used for this notebook were:
+
+- ***Pandas***
+- ***numpy***
+- ***matplotlib***
+- ***seaborn***
+- ***wordcloud*** which was used to import ***WordCloud, STOPWORDS and ImageColorGenerator***
 
 
 
