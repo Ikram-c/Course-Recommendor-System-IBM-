@@ -1,0 +1,37 @@
+
+# Cell 1
+-> import libraries
+
+-> import CSVs as pandas databases:
+
+    -> course_df = course_genre.csv
+    -> sim_df = sim.csv
+    -> test_users_df = rs_content_test.csv
+
+
+
+# Cell 2
+-> Initialize function: generate_recommendations_for_one_user:
+    
+    -> Allow for a threshold value to be put in as well
+
+
+# Cell 3
+-> Initialize function: generate_recommendations_for_all:
+
+    -> Allow for a threshold value to be put in as well
+
+    -> Strip out the Csvs
+
+
+# Cell 4
+modified version of:
+
+res_dict = {}
+users, courses, sim_scores = generate_recommendations_for_all()
+res_dict['USER'] = users
+res_dict['COURSE_ID'] = courses
+res_dict['SCORE'] = sim_scores
+res_df = pd.DataFrame(res_dict, columns=['USER', 'COURSE_ID', 'SCORE'])
+
+with the hyper param being the threshold passed in
